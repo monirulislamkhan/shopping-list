@@ -30,3 +30,14 @@ itemForm.addEventListener('submit', function (e) {
   addInput.value = '';
   addInput.focus();
 });
+
+// remove list item function
+ulList.addEventListener('click', function (e) {
+  if (e.target.closest('.remove-item')) {
+    const li = e.target.closest('li');
+    const itemName = li.firstChild.textContent.trim();
+    if (confirm('Are you sure you want to delete this item : ' + itemName)) {
+      li.remove();
+    }
+  }
+});
